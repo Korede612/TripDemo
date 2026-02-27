@@ -32,7 +32,7 @@ struct CreateTripRequest: APIRequest {
     let path = "/trips"
     let method: HTTPMethod = .POST
 
-    struct Body: Encodable {
+    struct Body: Codable {
         let destination: String
         let startDate: Date
         let endDate: Date

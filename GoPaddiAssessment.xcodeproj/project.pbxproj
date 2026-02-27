@@ -6,11 +6,48 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		931D24222F520973004C9BB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93B782F12F5091910082E217 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93B782F82F5091910082E217;
+			remoteInfo = GoPaddiAssessment;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		931D241E2F520973004C9BB7 /* GoPaddiAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoPaddiAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B782F92F5091910082E217 /* GoPaddiAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoPaddiAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		931D24272F5209E1004C9BB7 /* Exceptions for "GoPaddiAssessmentTests" folder in "GoPaddiAssessment" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TESTS_NOT_URGENT.md,
+			);
+			target = 93B782F82F5091910082E217 /* GoPaddiAssessment */;
+		};
+		931D24282F5209E1004C9BB7 /* Exceptions for "GoPaddiAssessmentTests" folder in "GoPaddiAssessmentTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TESTS_NOT_URGENT.md,
+			);
+			target = 931D241D2F520973004C9BB7 /* GoPaddiAssessmentTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		931D241F2F520973004C9BB7 /* GoPaddiAssessmentTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				931D24272F5209E1004C9BB7 /* Exceptions for "GoPaddiAssessmentTests" folder in "GoPaddiAssessment" target */,
+				931D24282F5209E1004C9BB7 /* Exceptions for "GoPaddiAssessmentTests" folder in "GoPaddiAssessmentTests" target */,
+			);
+			path = GoPaddiAssessmentTests;
+			sourceTree = "<group>";
+		};
 		93B782FB2F5091910082E217 /* GoPaddiAssessment */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GoPaddiAssessment;
@@ -19,6 +56,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		931D241B2F520973004C9BB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93B782F62F5091910082E217 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				93B782FB2F5091910082E217 /* GoPaddiAssessment */,
+				931D241F2F520973004C9BB7 /* GoPaddiAssessmentTests */,
 				93B782FA2F5091910082E217 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				93B782F92F5091910082E217 /* GoPaddiAssessment.app */,
+				931D241E2F520973004C9BB7 /* GoPaddiAssessmentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +94,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		931D241D2F520973004C9BB7 /* GoPaddiAssessmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 931D24242F520973004C9BB7 /* Build configuration list for PBXNativeTarget "GoPaddiAssessmentTests" */;
+			buildPhases = (
+				931D241A2F520973004C9BB7 /* Sources */,
+				931D241B2F520973004C9BB7 /* Frameworks */,
+				931D241C2F520973004C9BB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				931D24232F520973004C9BB7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				931D241F2F520973004C9BB7 /* GoPaddiAssessmentTests */,
+			);
+			name = GoPaddiAssessmentTests;
+			packageProductDependencies = (
+			);
+			productName = GoPaddiAssessmentTests;
+			productReference = 931D241E2F520973004C9BB7 /* GoPaddiAssessmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		93B782F82F5091910082E217 /* GoPaddiAssessment */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93B783042F5091920082E217 /* Build configuration list for PBXNativeTarget "GoPaddiAssessment" */;
@@ -80,6 +149,10 @@
 				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
+					931D241D2F520973004C9BB7 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = 93B782F82F5091910082E217;
+					};
 					93B782F82F5091910082E217 = {
 						CreatedOnToolsVersion = 26.1;
 					};
@@ -100,11 +173,19 @@
 			projectRoot = "";
 			targets = (
 				93B782F82F5091910082E217 /* GoPaddiAssessment */,
+				931D241D2F520973004C9BB7 /* GoPaddiAssessmentTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		931D241C2F520973004C9BB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93B782F72F5091910082E217 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +196,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		931D241A2F520973004C9BB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93B782F52F5091910082E217 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +212,57 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		931D24232F520973004C9BB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93B782F82F5091910082E217 /* GoPaddiAssessment */;
+			targetProxy = 931D24222F520973004C9BB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		931D24252F520973004C9BB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NHDBVA4HXP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prof-k.GoPaddiAssessmentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoPaddiAssessment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GoPaddiAssessment";
+			};
+			name = Debug;
+		};
+		931D24262F520973004C9BB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NHDBVA4HXP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prof-k.GoPaddiAssessmentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoPaddiAssessment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GoPaddiAssessment";
+			};
+			name = Release;
+		};
 		93B783022F5091920082E217 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -313,6 +451,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		931D24242F520973004C9BB7 /* Build configuration list for PBXNativeTarget "GoPaddiAssessmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931D24252F520973004C9BB7 /* Debug */,
+				931D24262F520973004C9BB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		93B782F42F5091910082E217 /* Build configuration list for PBXProject "GoPaddiAssessment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = TripPlannerViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            AppNavigationRoot()
+            .background(Color(.systemGroupedBackground))
+            .navigationBarHidden(true)
+            .environmentObject(viewModel)
         }
-        .padding()
+        .task {
+            await viewModel.loadTrips()
+        }
     }
 }
 

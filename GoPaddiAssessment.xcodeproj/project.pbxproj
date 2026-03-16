@@ -41,6 +41,13 @@
 			);
 			target = 931D241D2F520973004C9BB7 /* GoPaddiAssessmentTests */;
 		};
+		93B782FC2F50CAFE0082E217 /* Exceptions for "GoPaddiAssessment" folder in "GoPaddiAssessment" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 93B782F82F5091910082E217 /* GoPaddiAssessment */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -55,6 +62,9 @@
 		};
 		93B782FB2F5091910082E217 /* GoPaddiAssessment */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				93B782FC2F50CAFE0082E217 /* Exceptions for "GoPaddiAssessment" folder in "GoPaddiAssessment" target */,
+			);
 			path = GoPaddiAssessment;
 			sourceTree = "<group>";
 		};
@@ -275,6 +285,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_ENDPOINT_URL = "https://trips.free.beeceptor.com";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -339,6 +350,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_ENDPOINT_URL = "https://trips.free.beeceptor.com";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -401,6 +413,7 @@
 				DEVELOPMENT_TEAM = NHDBVA4HXP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoPaddiAssessment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -433,6 +446,7 @@
 				DEVELOPMENT_TEAM = NHDBVA4HXP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoPaddiAssessment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

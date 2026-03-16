@@ -17,6 +17,7 @@ final class TripPlannerViewModel: ObservableObject {
     var path: NavigationPath?
     // MARK: - Published State
     @Published var trips: [Trip] = []
+    @Published var cities: [City] = []
     @Published var selectedStatus: TripStatus = .planned
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
@@ -27,6 +28,7 @@ final class TripPlannerViewModel: ObservableObject {
     @Published var endDate: Date = Calendar.current.date(byAdding: .day, value: 5, to: Date())!
     @Published var showCityPicker: Bool = false
     @Published var isCreatingTrip: Bool = false
+    var tripName: String = ""
 
     var filteredTrips: [Trip] {
         trips.filter { $0.status == selectedStatus }
@@ -35,8 +37,8 @@ final class TripPlannerViewModel: ObservableObject {
     // MARK: - Dependencies
     private let repository: TripRepositoryProtocol
 
-    init(repository: TripRepositoryProtocol = MockTripRepository.shared) {
-        self.repository = repository
+    init(repository: TripRepositoryProtocol? = nil) {
+        self.repository = repository ?? TripRepository()
     }
 
     // MARK: - Intents
@@ -50,6 +52,17 @@ final class TripPlannerViewModel: ObservableObject {
         }
         isLoading = false
     }
+    
+    func getAllCities() async {
+        isLoading = true
+        errorMessage = nil
+        do {
+            cities = try await repository.fetchCities()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        isLoading = false
+    }
 
     func createTrip() async {
         guard !selectedCity.isEmpty else { return }
@@ -58,7 +71,8 @@ final class TripPlannerViewModel: ObservableObject {
             let newTrip = try await repository.createTrip(
                 destination: selectedCity,
                 startDate: startDate,
-                endDate: endDate
+                endDate: endDate,
+                tripName: tripName
             )
             trips.insert(newTrip, at: 0)
             selectedCity = ""

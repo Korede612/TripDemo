@@ -94,7 +94,7 @@ final class TripRepositoryTests: XCTestCase {
         // Then
         for city in cities {
             XCTAssertFalse(city.id.uuidString.isEmpty, "City should have valid ID")
-            XCTAssertFalse(city.name.isEmpty, "City should have name")
+            XCTAssertFalse(city.city.isEmpty, "City should have name")
             XCTAssertFalse(city.country.isEmpty, "City should have country")
         }
     }
@@ -102,7 +102,7 @@ final class TripRepositoryTests: XCTestCase {
     func testFetchCities_ContainsExpectedCities() async throws {
         // When
         let cities = try await sut.fetchCities()
-        let cityNames = cities.map { $0.name }
+        let cityNames = cities.map { $0.city }
         
         // Then
         XCTAssertTrue(cityNames.contains("Paris"), "Should contain Paris")

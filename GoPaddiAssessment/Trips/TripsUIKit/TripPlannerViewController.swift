@@ -89,7 +89,6 @@ final class TripPlannerViewController: UIViewController {
         tableView.register(TripCardCell.self, forCellReuseIdentifier: TripCardCell.reuseID)
         tableView.register(TripSkeletonCell.self, forCellReuseIdentifier: TripSkeletonCell.reuseID)
         tableView.tableFooterView = UIView()
-        tableView.backgroundView = stateView
     }
 
     private func buildTableHeader() {
@@ -176,9 +175,7 @@ final class TripPlannerViewController: UIViewController {
 
         viewModel.$errorMessage
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] error in
-                if let error { self?.stateView.show(mode: .error(error)) }
-            }
+            .sink { [weak self] _ in self?.reloadUI() }
             .store(in: &cancellables)
     }
 
@@ -189,23 +186,43 @@ final class TripPlannerViewController: UIViewController {
         let empty = viewModel.filteredTrips.isEmpty && !loading
         let hasError = viewModel.errorMessage != nil
 
-        // Table always visible; manage background view state
-        tableView.isHidden = false
+        tableView.reloadData()
 
         if hasError, let message = viewModel.errorMessage {
             stateView.show(mode: .error(message))
-            tableView.backgroundView?.isHidden = false
+            showEmptyFooter(true)
         } else if empty {
             stateView.show(mode: .empty)
-            tableView.backgroundView?.isHidden = false
+            showEmptyFooter(true)
         } else {
-            tableView.backgroundView?.isHidden = true
+            showEmptyFooter(false)
         }
-
-        tableView.reloadData()
 
         // Recompute header height in case dropdown expanded/collapsed or content changed
         buildTableHeader()
+    }
+
+    private func showEmptyFooter(_ show: Bool) {
+        if show {
+            let headerHeight = tableView.tableHeaderView?.frame.height ?? 0
+            let availableHeight = tableView.bounds.height - headerHeight
+            let footerHeight = max(availableHeight, 250)
+
+            let footerContainer = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
+            footerContainer.addSubview(stateView)
+            stateView.isHidden = false
+            stateView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                stateView.leadingAnchor.constraint(equalTo: footerContainer.leadingAnchor),
+                stateView.trailingAnchor.constraint(equalTo: footerContainer.trailingAnchor),
+                stateView.topAnchor.constraint(equalTo: footerContainer.topAnchor),
+                stateView.bottomAnchor.constraint(equalTo: footerContainer.bottomAnchor)
+            ])
+            tableView.tableFooterView = footerContainer
+        } else {
+            stateView.removeFromSuperview()
+            tableView.tableFooterView = UIView()
+        }
     }
 }
 

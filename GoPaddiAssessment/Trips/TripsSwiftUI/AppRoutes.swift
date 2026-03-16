@@ -5,7 +5,7 @@ import Foundation
 enum AppRoute: Hashable {
     case selectCountry
     case countryList
-    case countryDetail(code: String)
+    case countryDetail(code: City)
     case tripCreate
     case tripDetails(trip: Trip)
 }

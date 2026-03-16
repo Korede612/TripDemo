@@ -2,24 +2,26 @@ import SwiftUI
 
 struct CountryDetailView: View {
     @EnvironmentObject private var nav: NavigationCoordinator
-    let countryCode: String
+    let city: City
 
-    private var country: Country? {
-        Country.allCountries.first { $0.code == countryCode }
+//    private var country: City? = nil
+
+    init(city: City) {
+        self.city = city
     }
 
     var body: some View {
         VStack(spacing: 16) {
-            if let country = country {
-                Text(country.flag)
+//            if let country = country {
+                Text(city.flag)
                     .font(.system(size: 96))
-                Text(country.name)
+                Text(city.city)
                     .font(.title).bold()
-                Text(country.code)
+                Text(city.countryCode)
                     .foregroundStyle(.secondary)
-            } else {
-                Text("Unknown Country")
-            }
+//            } else {
+//                Text("Unknown Country")
+//            }
 
             Spacer()
 
@@ -35,6 +37,6 @@ struct CountryDetailView: View {
 }
 
 #Preview("Country Detail") {
-    NavigationStack { CountryDetailView(countryCode: "NG") }
+    NavigationStack { CountryDetailView(city: City(name: "Afghanistan", code: "AF", flag: "🇦🇫")) }
         .environmentObject(NavigationCoordinator())
 }

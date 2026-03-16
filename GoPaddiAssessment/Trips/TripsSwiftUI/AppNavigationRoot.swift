@@ -53,11 +53,12 @@ struct AppNavigationRoot: View {
         case .countryList:
             CountryListView()
         case .countryDetail(let code):
-            CountryDetailView(countryCode: code)
+            CountryDetailView(city: code)
         case .tripCreate:
             TripCreatePresenter()
         case .tripDetails(let trip):
             TripDetailsViewControllerRepresentable(trip: trip, coordinator: coordinator)
+                .navigationBarBackButtonHidden(true)
         }
     }
     

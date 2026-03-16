@@ -5,10 +5,10 @@ struct CountryListView: View {
     @EnvironmentObject private var viewModel: TripPlannerViewModel
     @State private var searchText: String = ""
 
-    private var filtered: [Country] {
-        if searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return Country.allCountries }
-        return Country.allCountries.filter { c in
-            c.name.localizedCaseInsensitiveContains(searchText) || c.code.localizedCaseInsensitiveContains(searchText)
+    private var filtered: [City] {
+        if searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return viewModel.cities }
+        return viewModel.cities.filter { c in
+            c.city.localizedCaseInsensitiveContains(searchText) || c.countryCode.localizedCaseInsensitiveContains(searchText)
         }
     }
 
@@ -18,8 +18,8 @@ struct CountryListView: View {
                 Text(country.flag)
                     .font(.largeTitle)
                 VStack(alignment: .leading) {
-                    Text(country.name).font(.body)
-                    Text(country.code)
+                    Text(country.city).font(.body)
+                    Text(country.countryCode)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -28,13 +28,16 @@ struct CountryListView: View {
             .contentShape(Rectangle())
             .onTapGesture {
 //                coordinator.path.append(AppRoute.countryDetail(code: country.code))
-                viewModel.selectedCity = country.name
+                viewModel.selectedCity = country.city
                 coordinator.pop()
             }
         }
         .listStyle(.insetGrouped)
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
         .navigationTitle("Select Country")
+        .onAppear {
+            Task { await viewModel.getAllCities() }
+        }
     }
 }
 

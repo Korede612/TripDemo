@@ -37,12 +37,12 @@ enum TripStatus: String, Codable, CaseIterable {
 }
 
 // MARK: - City Model
-struct City: Identifiable, Codable {
-    let id: UUID
-    let name: String
-    let country: String
-    let imageURL: String
-}
+//struct City: Identifiable, Codable {
+//    let id: UUID
+//    let name: String
+//    let country: String
+//    let imageURL: String
+//}
 
 // MARK: - Network Error
 enum NetworkError: LocalizedError {

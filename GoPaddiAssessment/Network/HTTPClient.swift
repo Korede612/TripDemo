@@ -44,11 +44,22 @@ final class HTTPClient: HTTPClientProtocol {
     private let baseURL: URL
     private let decoder: JSONDecoder
 
+    /// Reads the BASE_URL value from Info.plist (set via the BASE_ENDPOINT_URL build setting).
+    private static var environmentBaseURL: URL {
+        guard
+            let urlString = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String,
+            let url = URL(string: urlString)
+        else {
+            fatalError("BASE_URL is missing or invalid in Info.plist")
+        }
+        return url
+    }
+
     init(
-        baseURL: URL = URL(string: "https://api.tripplanner.example.com/v1")!,
+        baseURL: URL? = nil,
         session: URLSession = .shared
     ) {
-        self.baseURL = baseURL
+        self.baseURL = baseURL ?? Self.environmentBaseURL
         self.session = session
 
         self.decoder = JSONDecoder()

@@ -223,7 +223,7 @@ final class ModelsTests: XCTestCase {
         let decodedCity = try decoder.decode(City.self, from: data)
         
         XCTAssertEqual(decodedCity.id, originalCity.id)
-        XCTAssertEqual(decodedCity.name, originalCity.name)
+        XCTAssertEqual(decodedCity.city, originalCity.city)
         XCTAssertEqual(decodedCity.country, originalCity.country)
         XCTAssertEqual(decodedCity.imageURL, originalCity.imageURL)
     }
@@ -239,7 +239,7 @@ final class ModelsTests: XCTestCase {
         
         // Then
         XCTAssertFalse(city.id.uuidString.isEmpty)
-        XCTAssertFalse(city.name.isEmpty)
+        XCTAssertFalse(city.city.isEmpty)
         XCTAssertFalse(city.country.isEmpty)
         XCTAssertFalse(city.imageURL.isEmpty)
     }
